@@ -161,9 +161,28 @@ Teste os endpoints usando **cURL**:
 ```sh
 curl -X POST https://45.32.213.25:3000/transactions \
      -H "Content-Type: application/json" \
-     -d '{ "amount": 150.00, "currency": "BRL", "payment_method": "credit_card", "description": "Teste", "customer": { "name": "Fulvius Macedo", "email": "fulviusmacedo@email.com" } }'
+     -d '{ "amount": 150.00, "currency": "BRL",
+            "payment_method": "credit_card",
+            "description": "Teste", "customer": { "name": "Fulvius Macedo", "email": "fulviusmacedo@email.com" } }'
 ```
+```sh
+curl -X GET https://45.32.213.25:3000/transactions/{transaction_id}
 
----
+```
+```sh
+curl -X POST https://45.32.213.25:3000/transactions/{transaction_id}/refund
 
+```
+```sh
+curl -X POST https://45.32.213.25:3000/transactions/{transaction_id}/refund
 
+```
+```sh
+curl -X POST https://45.32.213.25:3000/webhooks/hopysplit \
+     -H "Content-Type: application/json" \
+     -d '{
+           "transaction_id": "123456",
+           "event": "payment_confirmed",
+           "status": "PAID"
+         }'
+```
