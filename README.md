@@ -159,27 +159,33 @@ Para garantir que apenas chamadas autorizadas sejam processadas:
 ## 🚀 Como Testar
 Teste os endpoints usando **cURL**:
 ```sh
-curl -X POST https://45.32.213.25:3000/transactions \
-     -H "Content-Type: application/json" \
-     -d '{ "amount": 150.00, "currency": "BRL",
-            "payment_method": "credit_card",
-            "description": "Teste", "customer": { "name": "Fulvius Macedo", "email": "fulviusmacedo@email.com" } }'
+curl -k -X POST https://45.32.213.25:3443/api/transactions \
+  -H "Content-Type: application/json" \
+  -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044" \
+  -d '{
+    "amount": 150.00,
+    "currency": "BRL",
+    "payment_method": "credit_card",
+    "description": "Teste de transação",
+    "customer": {
+      "name": "Fulvius Macedo",
+      "email": "fulvius@macedo.com"
+    }
+  }'
 ```
 ```sh
-curl -X GET https://45.32.213.25:3000/transactions/{transaction_id}
-
+curl -X GET https://45.32.213.25:3000/transactions/{transaction_id} \
+     -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044"
 ```
 ```sh
-curl -X POST https://45.32.213.25:3000/transactions/{transaction_id}/refund
-
-```
-```sh
-curl -X POST https://45.32.213.25:3000/transactions/{transaction_id}/refund
+curl -X POST https://45.32.213.25:3000/transactions/{transaction_id}/refund \
+     -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044"
 
 ```
 ```sh
 curl -X POST https://45.32.213.25:3000/webhooks/hopysplit \
      -H "Content-Type: application/json" \
+     -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044" \
      -d '{
            "transaction_id": "123456",
            "event": "payment_confirmed",
