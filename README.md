@@ -174,11 +174,11 @@ curl -k -X POST https://45.32.213.25:3443/api/transactions \
   }'
 ```
 ```sh
-curl -k -X GET https://45.32.213.25:3443/api/transactions/36fd7c91-1132-43ba-8f26-92e874368073 \
+curl -k -X GET https://45.32.213.25:3443/api/transactions/079c9f25-be89-47db-b26a-d531d8a5a9f4 \
      -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044"
 ```
 ```sh
-curl -k -X POST https://45.32.213.25:3443/api/transactions/36fd7c91-1132-43ba-8f26-92e874368073/refund \
+curl -k -X POST https://45.32.213.25:3443/api/transactions/079c9f25-be89-47db-b26a-d531d8a5a9f4/refund \
      -H "Content-Type: application/json" \
      -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044"
 ```
@@ -187,7 +187,7 @@ curl -k -X POST https://45.32.213.25:3443/api/webhooks/hopysplit \
      -H "Content-Type: application/json" \
      -H "x-api-key: c504dccb93b2996f7e65f3c5ac5651c65ab665e508463f64da642c23f4e85044" \
      -d '{
-           "transaction_id": "36fd7c91-1132-43ba-8f26-92e874368073",
+           "transaction_id": "079c9f25-be89-47db-b26a-d531d8a5a9f4",
            "event": "payment_confirmed",
            "status": "PAID"
          }'
